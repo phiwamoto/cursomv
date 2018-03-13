@@ -37,6 +37,7 @@ public class Produto implements Serializable {
 	)
 	private List<Categoria> categorias = new ArrayList<>();
 	
+	@com.fasterxml.jackson.annotation.JsonIgnore
 	@OneToMany(mappedBy="id.produto")	
 	private Set<ItemPedido> itens = new HashSet<>();	
 	
@@ -51,6 +52,7 @@ public class Produto implements Serializable {
 		this.preco = preco;
 	}
 	
+	@com.fasterxml.jackson.annotation.JsonIgnore
 	public List<Pedido> getPedidos() {
 		List<Pedido> lista = new ArrayList<>();
 		for (ItemPedido x : itens) {
